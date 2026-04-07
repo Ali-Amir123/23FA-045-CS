@@ -5,10 +5,9 @@ Topic:
 from random import randrange
 from threading import Barrier, Thread
 from time import ctime, sleep
+
 num_runners = 3 # Number of threads that must wait at the barrier
-
 finish_line = Barrier(num_runners)   # Barrier will block threads until 3 threads call wait()
-
 runners = ['Huey', 'Dewey', 'Louie']  # List of thread names
 def runner():
     name = runners.pop()     # Each thread takes one name
@@ -21,16 +20,13 @@ def main():
     threads = []
     print('START RACE!!!!')
     
-    # Create and start threads
-    for i in range(num_runners):
+    for i in range(num_runners):    # Create and start threads
         t = Thread(target=runner)
         threads.append(t)
         t.start()
     
-    # Wait for all threads to finish
-    for thread in threads:
+    for thread in threads:     # Wait for all threads to finish
         thread.join()
-    
     print('Race over!')
 
 if __name__ == "__main__":
@@ -63,13 +59,9 @@ Topic:
 import logging
 import threading
 import time
-
-# Logging format
-logging.basicConfig(level=logging.INFO)
-
+logging.basicConfig(level=logging.INFO)# Logging format
 items = []
 condition = threading.Condition()
-
 class Consumer(threading.Thread):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
