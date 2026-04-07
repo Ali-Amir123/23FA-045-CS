@@ -6,7 +6,6 @@ Topic:
 from random import randrange
 from threading import Barrier, Thread
 from time import ctime, sleep
-
 # Number of threads that must wait at the barrier
 num_runners = 3
 
