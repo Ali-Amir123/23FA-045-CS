@@ -1,7 +1,6 @@
 2) Class.py
 
-# Define a class
-class Myclass:
+class Myclass: # Define a class
     common = 10   # Class variable (shared by all instances)
 
     def __init__(self):   # Constructor
@@ -10,32 +9,23 @@ class Myclass:
     def myfunction(self, arg1, arg2):
         return self.myvariable   # Returns instance variable
 
-
-# Create object
-instance = Myclass()
+instance = Myclass() # Create object
 print("instance.myfunction(1, 2)", instance.myfunction(1, 2))
-
 instance2 = Myclass()
+print("instance.common", instance.common)# Access class variable
+print("instance2.common", instance2.common)
 
-# Access class variable
+Myclass.common = 30 # Modify class variable
 print("instance.common", instance.common)
 print("instance2.common", instance2.common)
 
-# Modify class variable
-Myclass.common = 30
+instance.common = 10 # Override class variable in one object
 print("instance.common", instance.common)
 print("instance2.common", instance2.common)
 
-# Override class variable in one object
-instance.common = 10
+Myclass.common = 50 # Change class variable again
 print("instance.common", instance.common)
 print("instance2.common", instance2.common)
-
-# Change class variable again
-Myclass.common = 50
-print("instance.common", instance.common)
-print("instance2.common", instance2.common)
-
 
 # Inheritance
 class AnotherClass(Myclass):
