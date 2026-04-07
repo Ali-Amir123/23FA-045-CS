@@ -5,27 +5,17 @@ Topic:
 from random import randrange
 from threading import Barrier, Thread
 from time import ctime, sleep
+num_runners = 3 # Number of threads that must wait at the barrier
 
-# Number of threads that must wait at the barrier
-num_runners = 3
+finish_line = Barrier(num_runners)   # Barrier will block threads until 3 threads call wait()
 
-# Barrier will block threads until 3 threads call wait()
-finish_line = Barrier(num_runners)
-
-# List of thread names
-runners = ['Huey', 'Dewey', 'Louie']
-
+runners = ['Huey', 'Dewey', 'Louie']  # List of thread names
 def runner():
-    # Each thread takes one name
-    name = runners.pop()
+    name = runners.pop()     # Each thread takes one name
     
-    # Simulate running time
-    sleep(randrange(2, 5))
-    
+    sleep(randrange(2, 5))    # Simulate running time
     print('%s reached the barrier at: %s \n' % (name, ctime()))
-    
-    # Wait at barrier until all threads arrive
-    finish_line.wait()
+    finish_line.wait()    # Wait at barrier until all threads arrive
 
 def main():
     threads = []
@@ -66,10 +56,7 @@ Disadvantages:
    Fixed number of threads required
  
 
-
-
-
-2️) condition.py
+2) condition.py
 Topic:
    Condition Variable (Producer-Consumer)
 
@@ -155,7 +142,7 @@ Disadvantages:
 
 
 
-3️) event.py
+3) event.py
 Topic:
    Event Signaling
 
@@ -216,7 +203,7 @@ Disadvantages:
 
 
 
-4️) myThreadclass.py
+4) myThreadclass.py
 Topic:
    Basic Thread Class
 
@@ -238,7 +225,7 @@ Disadvantages:
    Race conditions possible
 
 
-5️) Lock Version
+5) Lock Version
 Topic:
    Lock (Mutual Exclusion)
 
@@ -259,7 +246,7 @@ Disadvantages:
    Deadlock possible
 
 
-6️) Lock2 Version
+6) Lock2 Version
 Topic:
    Partial Locking
 
@@ -276,7 +263,7 @@ Disadvantages:
    Unsafe if shared data exists
 
 
-7️) RLock.py
+7) RLock.py
 Topic:
    Reentrant Lock (RLock)
 
@@ -296,7 +283,7 @@ Disadvantages:
    Slight overhead
 
 
-8️) Semaphore.py
+8) Semaphore.py
 Topic:
    Semaphore
 
@@ -316,7 +303,7 @@ Disadvantages:
    Complex debugging
 
 
-9️) Thread_defination.py
+9) Thread_defination.py
 Topic:
    Basic Thread Function
 
